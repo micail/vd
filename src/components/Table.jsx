@@ -3,28 +3,36 @@ import React, { useState } from 'react';
 import './Table.scss';
 
 const Table = ({ entries }) => {
-  const [sortedBy, setSortedBy] = useState(null);
-
+  const [sortingOption, setSortingOption] = useState(null);
   let sorted = [...entries];
-  
-  if(sortedBy !== null) {
+
+  /** Ascending and Descending sorting */
+  const sortingWay = key => {
+    let direction = 'ascending';
+    if ( sortingOption && sortingOption.key === key && sortingOption.direction === 'ascending') {
+      direction = 'descending';
+    }
+    setSortingOption({ key, direction });
+  }
+
+  if (sortingOption !== null) {
     sorted.sort((a, b) => {
-      if (a[sortedBy] < b[sortedBy]) {
-        return -1;
+      if (a[sortingOption.key] < b[sortingOption.key]) {
+        return sortingOption.direction === 'ascending' ? -1 : 1;
       }
-      if (a[sortedBy] > b[sortedBy]) {
-        return 1;
+      if (a[sortingOption.key] > b[sortingOption.key]) {
+        return sortingOption.direction === 'ascending' ? -1 : 1;
       }
       return 0;
     });
   }
-  
+
   return (
     <table>
       <thead>
         <tr>
           <th>Name
-          <button type="button" onClick={() => setSortedBy('name')}>
+          <button type="button" onClick={() => sortingWay('name')}>
             </button>
           </th>
           <th>Surname</th>
@@ -32,7 +40,7 @@ const Table = ({ entries }) => {
           <th>Phone</th>
           <th>Age</th>
           <th>City
-          <button type="button" onClick={() => setSortedBy('city')}>
+          <button type="button" onClick={() => sortingWay('city')}>
             </button>
           </th>
         </tr>
