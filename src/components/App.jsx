@@ -4,14 +4,16 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Form from './Form';
+import Table from './Table';
 
 import './App.scss';
 
-const App = ({entries}) => {
+const App = ({ entries }) => {
   return (
     <div className="container">
       <div className="row">
         <Form />
+        <Table entries={entries} />
       </div>
     </div>
   );
