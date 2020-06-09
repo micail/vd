@@ -6,6 +6,7 @@ const entriesReducer = (state = INITIAL_STATE, action) => {
   if (action.type === ADD_ENTRY) {
     return state.concat(action.payload)
   }
+  return state
 };
 
 export default entriesReducer;
