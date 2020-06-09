@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addEntry } from '../store/actions/recordActions'
 
 import './Form.scss';
 
 const Form = () => {
   const [customer, setCustomer] = useState({});
-
+  const dispatch = useDispatch();
 
   const handleChange = (event) => {
     event.persist();
@@ -12,6 +14,8 @@ const Form = () => {
   };
 
   const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(addEntry(customer));
   };
 
   return (
