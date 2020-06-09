@@ -9,7 +9,7 @@ const Table = ({ entries }) => {
   /** Ascending and Descending sorting */
   const sortingWay = key => {
     let direction = 'ascending';
-    if ( sortingOption && sortingOption.key === key && sortingOption.direction === 'ascending') {
+    if (sortingOption && sortingOption.key === key && sortingOption.direction === 'ascending') {
       direction = 'descending';
     }
     setSortingOption({ key, direction });
@@ -32,7 +32,8 @@ const Table = ({ entries }) => {
       <thead>
         <tr>
           <th>Name
-          <button type="button" onClick={() => sortingWay('name')}>
+          <button type="button" className={`sort-button ${ (sortingOption && sortingOption.key === 'name') ? sortingOption.direction : ''}`} onClick={() => sortingWay('name')}>
+              <i class="arrow"></i>
             </button>
           </th>
           <th>Surname</th>
@@ -40,7 +41,8 @@ const Table = ({ entries }) => {
           <th>Phone</th>
           <th>Age</th>
           <th>City
-          <button type="button" onClick={() => sortingWay('city')}>
+          <button type="button" className={`sort-button ${ (sortingOption && sortingOption.key === 'city')  ? sortingOption.direction : ''}`} onClick={() => sortingWay('city')}>
+              <i class="arrow"></i>
             </button>
           </th>
         </tr>
