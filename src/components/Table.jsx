@@ -32,7 +32,7 @@ const Table = ({ entries }) => {
       <thead>
         <tr>
           <th>Name
-          <button type="button" className={`sort-button ${ (sortingOption && sortingOption.key === 'name') ? sortingOption.direction : ''}`} onClick={() => sortingWay('name')}>
+          <button type="button" className={`sort-button ${(sortingOption && sortingOption.key === 'name') ? sortingOption.direction : ''}`} onClick={() => sortingWay('name')}>
               <i class="arrow"></i>
             </button>
           </th>
@@ -41,7 +41,7 @@ const Table = ({ entries }) => {
           <th>Phone</th>
           <th>Age</th>
           <th>City
-          <button type="button" className={`sort-button ${ (sortingOption && sortingOption.key === 'city')  ? sortingOption.direction : ''}`} onClick={() => sortingWay('city')}>
+          <button type="button" className={`sort-button ${(sortingOption && sortingOption.key === 'city') ? sortingOption.direction : ''}`} onClick={() => sortingWay('city')}>
               <i class="arrow"></i>
             </button>
           </th>
@@ -60,7 +60,7 @@ const Table = ({ entries }) => {
         ))}
       </tbody>
     </table>
-  )
+  );
 };
 
 export default Table;
