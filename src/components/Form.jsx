@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addEntry } from '../store/actions/recordActions'
+import { addEntry } from '../store/actions/recordActions';
 
 import './Form.scss';
 
@@ -16,6 +16,8 @@ const Form = ({ close }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(addEntry(customer));
+    /** Very rough solution for clearing the form */
+    setCustomer(() => ({ customer: {} }));
     /** Close modal after save */
     close();
   };

@@ -1,13 +1,10 @@
 
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
 import Form from './Form';
 import Table from './Table';
 import Modal from './Modal';
-
-import './App.scss';
 
 const App = ({ entries }) => {
   const [showModal, setShowModal] = useState(false);
@@ -31,18 +28,6 @@ const App = ({ entries }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    entries: state.entries,
-  };
-};
+const mapStateToProps = (state) => ({ entries: state.entries });
 
 export default connect(mapStateToProps)(App);
-
-App.propTypes = {
-  entries: PropTypes.arrayOf(PropTypes.object),
-};
-
-App.defaultProps = {
-  entries: [],
-};
