@@ -26,7 +26,7 @@ const App = ({ entries }) => {
         <Table entries={entries} />
         <Modal showModal={showModal} close={closeModal}><Form close={closeModal} /></Modal>
       </div>
-      <button onClick={openModal}>Add customer</button>
+      <button type="button" onClick={openModal}>Add customer</button>
     </div>
   );
 };

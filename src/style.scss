@@ -1,3 +1,78 @@
+/** Variables */
+$col_number: 12;
+
+$xs: 576px;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+
+/** Inspired by the Boostrap */
+@mixin grid($size, $col_number) {
+	@for $i from 1 through $col_number {
+		.col-#{$size}-#{$i} {
+			display: flex;
+      flex-basis: (100 / ($col_number / $i) ) * 1%;
+			padding: 1em;
+			flex-wrap: wrap;
+		}
+	}
+}
+
+
+@mixin breakpoints($media) {
+	@if $media == sm {
+		@media (min-width: $sm) { @content; }
+	} @else if $media == md {
+		@media (min-width: $md) { @content; }
+	} @else if $media == lg {
+		@media (min-width: $lg) { @content; }
+	} @else if $media == xl {
+		@media (min-width: $xl) { @content; }
+	}
+}
+
+
+@include grid(xs, $col_number);
+
+@include breakpoints(sm) {
+	@include grid(sm, $col_number);
+}
+
+@include breakpoints(md) {
+	@include grid(md, $col_number);
+}
+
+@include breakpoints(lg) {
+	@include grid(lg, $col_number);
+}
+
+@include breakpoints(xl) {
+	@include grid(xl, $col_number);
+}
+
+/** General styles */
+html {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html, body, .container {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.row {
+  display: flex;
+	flex-wrap: wrap;
+}
+
 .d-block {
     display: block;
 }

@@ -28,38 +28,43 @@ const Table = ({ entries }) => {
   }
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Name
-          <button type="button" className={`sort-button ${(sortingOption && sortingOption.key === 'name') ? sortingOption.direction : ''}`} onClick={() => sortingWay('name')}>
-              <i class="arrow"></i>
-            </button>
-          </th>
-          <th>Surname</th>
-          <th>email</th>
-          <th>Phone</th>
-          <th>Age</th>
-          <th>City
+    <div className="col-xs-12">
+      <table>
+        <thead>
+          <tr>
+            <th>Name
+          <button type="button"
+          className={`sort-button ${(sortingOption && sortingOption.key === 'name') ? sortingOption.direction : ''}`} 
+          onClick={() => sortingWay('name')}
+          >
+                <i class="arrow"></i>
+              </button>
+            </th>
+            <th>Surname</th>
+            <th>email</th>
+            <th>Phone</th>
+            <th>Age</th>
+            <th>City
           <button type="button" className={`sort-button ${(sortingOption && sortingOption.key === 'city') ? sortingOption.direction : ''}`} onClick={() => sortingWay('city')}>
-              <i class="arrow"></i>
-            </button>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        {sorted.map(entry => (
-          <tr key={entry.id}>
-            <td>{entry.name}</td>
-            <td>{entry.surname}</td>
-            <td>{entry.email}</td>
-            <td>{entry.phone}</td>
-            <td>{entry.age}</td>
-            <td>{entry.city}</td>
+                <i class="arrow"></i>
+              </button>
+            </th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {sorted.map(entry => (
+            <tr key={entry.id}>
+              <td>{entry.name}</td>
+              <td>{entry.surname}</td>
+              <td>{entry.email}</td>
+              <td>{entry.phone}</td>
+              <td>{entry.age}</td>
+              <td>{entry.city}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 
