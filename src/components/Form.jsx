@@ -4,7 +4,7 @@ import { addEntry } from '../store/actions/recordActions'
 
 import './Form.scss';
 
-const Form = () => {
+const Form = ({close}) => {
   const [customer, setCustomer] = useState({});
   const dispatch = useDispatch();
 
@@ -16,6 +16,8 @@ const Form = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(addEntry(customer));
+    /** Close modal after save */
+    close();
   };
 
   return (

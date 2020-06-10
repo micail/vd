@@ -23,9 +23,8 @@ const App = ({ entries }) => {
   return (
     <div className="container">
       <div className="row">
-        <Form />
         <Table entries={entries} />
-        <Modal showModal={showModal} close={closeModal}><Form /></Modal>
+        <Modal showModal={showModal} close={closeModal}><Form close={closeModal} /></Modal>
       </div>
       <button onClick={openModal}>Add customer</button>
     </div>
