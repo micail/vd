@@ -29,7 +29,7 @@ const Table = ({ entries }) => {
 
   return (
     <div className="col-xs-12">
-      <table>
+      <table className="vd-table">
         <thead>
           <tr>
             <th>Name

@@ -51,9 +51,23 @@ $xl: 1200px;
 	@include grid(xl, $col_number);
 }
 
+
+@include breakpoints(sm) {
+  .vd-modal {
+    max-width: 20em;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+  }
+}
+
 /** General styles */
 html {
   box-sizing: border-box;
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 0.875em;
+  color: #000f42;
 }
 
 * {
@@ -73,10 +87,65 @@ html, body, .container {
 	flex-wrap: wrap;
 }
 
+/** Display */
 .d-block {
     display: block;
 }
 
 .d-none {
     display: none;
+}
+
+/** Positioning */
+
+.float-right {
+  float: right!important;
+}
+
+.float-left {
+  float: left!important;
+}
+
+/** Buttons */
+
+button, .button {  
+  color: #fff;
+  background-color: #0137ef;
+  cursor: pointer;
+  border: none;
+  border-radius: 2em;
+  &:hover, &:active, &:focus {
+    outline: none;
+  }
+  &.center {
+    margin: 0 auto;
+  }
+}
+
+.btn--full {
+  font-size: 1.1em;
+  display: inline-block;
+  text-align: center;
+  margin: 0;
+  line-height: 3em;
+  padding-right: 1em;
+  padding-left: 1em;
+  color: #fff;
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+.sort-button {
+  margin-left: .2em;
+  margin-right: .2em;
+  background: none;
+  border: none;
+}
+
+.close-button {
+  font-size: 1em;
+  line-height: 1em;
+  padding: 0 .25em;
+  border: none;
+  border-radius: .25em;
 }

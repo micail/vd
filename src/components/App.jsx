@@ -25,8 +25,8 @@ const App = ({ entries }) => {
       <div className="row">
         <Table entries={entries} />
         <Modal showModal={showModal} close={closeModal}><Form close={closeModal} /></Modal>
+        <button className="btn--full center" type="button" onClick={openModal}>Add customer</button>
       </div>
-      <button type="button" onClick={openModal}>Add customer</button>
     </div>
   );
 };

@@ -4,7 +4,7 @@ import { addEntry } from '../store/actions/recordActions'
 
 import './Form.scss';
 
-const Form = ({close}) => {
+const Form = ({ close }) => {
   const [customer, setCustomer] = useState({});
   const dispatch = useDispatch();
 
@@ -21,33 +21,33 @@ const Form = ({close}) => {
   };
 
   return (
-    <div className="form-wrapper">
+    <div className="vd-modal-form">
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">
-          Name:
+          <span>Name:</span>
           <input id="name" name="name" placeholder="Enter name" onChange={handleChange} value={customer.name || ''} required />
         </label>
         <label htmlFor="surname">
-          Surname:
+          <span>Surname:</span>
           <input id="surname" name="surname" placeholder="Enter surname" onChange={handleChange} value={customer.surname || ''} required />
         </label>
         <label htmlFor="email">
-          email:
+          <span>email:</span>
           <input id="email" name="email" placeholder="Enter email" onChange={handleChange} value={customer.email || ''} required type="email" />
         </label>
         <label htmlFor="phone">
-          Phone:
+          <span> Phone:</span>
           <input id="phone" name="phone" placeholder="Enter phone" onChange={handleChange} value={customer.phone || ''} required type="tel" />
         </label>
         <label htmlFor="age">
-          Age:
+          <span> Age:</span>
           <input id="age" name="age" placeholder="Enter age" onChange={handleChange} value={customer.age || ''} required type="number" />
         </label>
         <label htmlFor="city">
-          City:
+          <span> City:</span>
           <input id="city" name="city" placeholder="Enter city" onChange={handleChange} value={customer.city || ''} required />
         </label>
-        <input type="submit" value="Save" />
+        <input className="button" type="submit" value="Save" />
       </form>
     </div>
   );
